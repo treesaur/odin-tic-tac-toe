@@ -1,0 +1,64 @@
+command line tic-tac-toe
+
+1. Create tic-tac-toe grid using 3x3 array.
+2. Ask player 1 for user input on where in the grid they want to play by using coordinates (i.e., [0,1]). Make first player use 'X'.
+3. Update grid with proper array index filled with 'X'.
+4. Display updated grid to terminal.
+5. Ask player 2 for user input on where in the grid they want to play by using coordinates (i.e., [0,1]). Make second player use 'O'.
+6. Update grid with proper array index filled with 'O'.
+7. Display updated grid to terminal.
+8. Repeat steps 2-7 until three in a row match diagonally, horizontally, or vertically.
+9. When three in row matches, display the winner and updated grid.
+
+methods:
+
+1 def createGrid()
+    1. Create 3x3 nested array with empty indices inside an array.
+
+2 def playerMove()
+    1. Display to terminal asking player for coordinates on move.
+    2. Use gets.chomp() to take user move coordinates.
+    3. Return coordinates.
+
+3 def updateGrid(playerMove(), player)
+    1. Use coordinates input from playerMove().
+    2. Use coordinates to access @grid and place player ('X' or 'O') in the position.
+
+4 def displayGrid()
+    1. puts @grid
+
+5 def winner?()
+    1. if @grid has three in a row of 'X' or 'O' in any of the following positions:
+        1) all of row 1
+        2) all of row 2
+        3) all of row 3
+        4) all of column 1
+        5) all of column 2
+        6) all of column 3
+        7) diagonally from top left to bottom right
+        8) diagonally from top right to bottom left 
+       then return true.
+    2) else return false.
+
+6 def play()
+    createGrid()
+    turnNum = 0
+    while !winner?
+        playerMove()
+        updateGrid(playerMove(), player(turnNum))
+        displayGrid()
+        turnNum += 1
+    end
+  end
+
+7 def player(turn)
+    if turn % 2 == 0
+        return 'X'
+    else 
+        return 'O'
+    end
+  end
+
+
+
+
